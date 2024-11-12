@@ -3,6 +3,8 @@ import 'package:autograph_album/pages/album_first/album_first_binding.dart';
 import 'package:autograph_album/pages/album_first/album_first_view.dart';
 import 'package:autograph_album/pages/album_first/date_add/date_add_binding.dart';
 import 'package:autograph_album/pages/album_first/date_add/date_add_view.dart';
+import 'package:autograph_album/pages/album_first/date_love/date_love_binding.dart';
+import 'package:autograph_album/pages/album_first/date_love/date_love_view.dart';
 import 'package:autograph_album/pages/album_second/album_add/album_add_binding.dart';
 import 'package:autograph_album/pages/album_second/album_add/album_add_view.dart';
 import 'package:autograph_album/pages/album_second/album_second_binding.dart';
@@ -15,6 +17,8 @@ import 'package:autograph_album/pages/album_third/feedback/feedback_binding.dart
 import 'package:autograph_album/pages/album_third/feedback/feedback_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'db_album/date_computed.dart';
 
 Color primaryColor = const Color(0xfff5902c);
 Color bgColor = const Color(0xfff8f8f8);
@@ -33,7 +37,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: Pers,
-      initialRoute: '/album_tab',
+      initialRoute: '/',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -85,10 +89,12 @@ class MyApp extends StatelessWidget {
   }
 }
 List<GetPage<dynamic>> Pers = [
+  GetPage(name: '/', page: ()  => const DateLoveView(), binding: DateLoveBinding()),
   GetPage(name: '/album_tab', page: ()  => AlbumTabPage(), binding: AlbumTabBinding()),
   GetPage(name: '/album_first', page: () => AlbumFirstPage(), binding: AlbumFirstBinding()),
   GetPage(name: '/album_second', page: () => AlbumSecondPage(), binding: AlbumSecondBinding()),
   GetPage(name: '/album_third', page: () => AlbumThirdPage(), binding: AlbumThirdBinding()),
+  GetPage(name: '/rule_back', page: () => const DateComputed()),
   GetPage(name: '/feedback', page: () => FeedbackPage(), binding: FeedbackBinding()),
   GetPage(name: '/album_add', page: () => AlbumAddPage(), binding: AlbumAddBinding()),
   GetPage(name: '/date_add', page: () => DateAddPage(), binding:  DateAddBinding())

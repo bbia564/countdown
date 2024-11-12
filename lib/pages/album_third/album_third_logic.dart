@@ -66,13 +66,13 @@ If you have any questions or concerns about our privacy policy, please contact u
       applicationName: info.appName,
       applicationVersion: info.version,
       applicationIcon: Image.asset(
-        'assets/launcher.webp',
+        'assets/logo.png',
         width: 75,
         height: 75,
       ),
       children: [
         const Text(
-            """We can provide you with memory book records and date reminders"""),
+            """Strive to be a good helper in your life"""),
       ],
       context: context,
     );
