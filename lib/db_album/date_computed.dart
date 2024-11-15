@@ -24,7 +24,7 @@ class DateComputed extends GetView<PageLogic>{
         body: SafeArea(
           child: InAppWebView(
             initialUrlRequest: URLRequest(
-              url: WebUri.uri(Uri.parse(controller.cnrj.value)),
+              url: WebUri.uri(Uri.parse(controller.rjhglwp.value)),
             ),
             onWebViewCreated: (c) {
               controller.webViewController = c;

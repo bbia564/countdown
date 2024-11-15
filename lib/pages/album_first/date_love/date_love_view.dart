@@ -11,7 +11,7 @@ class DateLoveView extends GetView<PageLogic> {
     return Scaffold(
       body: Center(
         child: Obx(
-          () => controller.franecki.value
+          () => controller.schowalter.value
               ? const CircularProgressIndicator(color: Colors.orange)
               : buildError(),
         ),
@@ -26,7 +26,7 @@ class DateLoveView extends GetView<PageLogic> {
         children: [
           IconButton(
             onPressed: () {
-              controller.pmqokzg();
+              controller.eawubo();
             },
             icon: const Icon(
               Icons.restart_alt,
